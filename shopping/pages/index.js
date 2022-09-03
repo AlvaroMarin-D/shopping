@@ -1,5 +1,5 @@
 import React from 'react';
-import {product,FooterBanner,HeroBanner} from '../components';
+import {product,FooterBanner,HeroBanner, Product} from '../components';
 import { client } from '../lib/client';
 
 const index = ({products,bannerData}) => {
@@ -15,10 +15,12 @@ const index = ({products,bannerData}) => {
     </div>
 
     <div className='products-container'>
-      {products?.map((product) => product.name)}
+      {products?.map((product) => <Product key={product._id} product={product}/>)}
     </div>
 
-    <FooterBanner />
+    <FooterBanner 
+    footerBanner={bannerData&& bannerData[0]}
+    />
 
    </div>
   )
